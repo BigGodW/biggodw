@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>
+    客户端JavaScript | BigGodW
+  </title>
+  <meta name="description" content="客户端JavaScriptweb浏览器中的JavaScriptwindow对象脚本化文档 dom  获取文档元素  document.getElementById() e.getElementsByName() e.getElementsByTagName() e.getElementsByClassName() e.querySelector() e.querySelectorAll()   文">
+<meta name="keywords" content="基础,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="客户端JavaScript">
+<meta property="og:url" content="http://biggodw/github.io/2019/03/03/客户端JavaScript/index.html">
+<meta property="og:site_name" content="BigGod吴">
+<meta property="og:description" content="客户端JavaScriptweb浏览器中的JavaScriptwindow对象脚本化文档 dom  获取文档元素  document.getElementById() e.getElementsByName() e.getElementsByTagName() e.getElementsByClassName() e.querySelector() e.querySelectorAll()   文">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-03T08:30:01.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="客户端JavaScript">
+<meta name="twitter:description" content="客户端JavaScriptweb浏览器中的JavaScriptwindow对象脚本化文档 dom  获取文档元素  document.getElementById() e.getElementsByName() e.getElementsByTagName() e.getElementsByClassName() e.querySelector() e.querySelectorAll()   文">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://biggodw/github.io/2019/03/03/客户端JavaScript/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="BigGod吴" type="application/atom+xml">
+  
+  <!-- 
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+   -->
+  
+    <link rel="icon" href="/images/avatar.png" type="image/x-icon" sizes="160x160">
+    <link rel="apple-touch-icon-precomposed" href="/images/avatar.png">
+    
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/biggodw" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">biggod吴</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Sichuan, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech>
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/biggodw" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/biggodw" target="_blank" title="Twitter" data-toggle="tooltip" data-placement="top"><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/" target="_blank" title="Behance" data-toggle="tooltip" data-placement="top"><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/all/">all</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/all/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/all/css/">css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/all/js插件/">js插件</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/all/插件/">插件</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/all/框架/">框架</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animate/">animate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hotcss/">hotcss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js插件/">js插件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swiper/">swiper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wow/">wow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端/">移动端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/轮播图/">轮播图</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/JavaScript/" style="font-size: 13px;">JavaScript</a> <a href="/tags/animate/" style="font-size: 13px;">animate</a> <a href="/tags/bootstrap/" style="font-size: 13px;">bootstrap</a> <a href="/tags/css/" style="font-size: 13.5px;">css</a> <a href="/tags/hotcss/" style="font-size: 13px;">hotcss</a> <a href="/tags/js插件/" style="font-size: 13.5px;">js插件</a> <a href="/tags/swiper/" style="font-size: 13px;">swiper</a> <a href="/tags/wow/" style="font-size: 13px;">wow</a> <a href="/tags/动画/" style="font-size: 13.5px;">动画</a> <a href="/tags/响应式/" style="font-size: 13px;">响应式</a> <a href="/tags/基础/" style="font-size: 14px;">基础</a> <a href="/tags/插件/" style="font-size: 13px;">插件</a> <a href="/tags/移动端/" style="font-size: 13.5px;">移动端</a> <a href="/tags/轮播图/" style="font-size: 13px;">轮播图</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/all/">all</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/all/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/03/客户端JavaScript/" class="title">客户端JavaScript</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-03T08:29:15.000Z" itemprop="datePublished">2019-03-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/all/">all</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/all/插件/">插件</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/03/hotcss/" class="title">hotcss</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-03T08:26:52.000Z" itemprop="datePublished">2019-03-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/all/">all</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/all/框架/">框架</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/03/bootstrap/" class="title">bootstrap</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-03T08:25:04.000Z" itemprop="datePublished">2019-03-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/all/">all</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/all/css/">css</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/03/css/" class="title">css</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-03T08:23:40.000Z" itemprop="datePublished">2019-03-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/all/">all</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/all/js插件/">js插件</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/03/swiper/" class="title">swiper</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-03T08:17:51.000Z" itemprop="datePublished">2019-03-03</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-客户端JavaScript" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      客户端JavaScript
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/03/03/客户端JavaScript/" class="article-date">
+	  <time datetime="2019-03-03T08:29:15.000Z" itemprop="datePublished">2019-03-03</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/all/">all</a>►<a class="article-category-link" href="/categories/all/JavaScript/">JavaScript</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/JavaScript/">JavaScript</a>, <a class="article-tag-link" href="/tags/基础/">基础</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/03/03/客户端JavaScript/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="客户端JavaScript"><a href="#客户端JavaScript" class="headerlink" title="客户端JavaScript"></a>客户端JavaScript</h1><h2 id="web浏览器中的JavaScript"><a href="#web浏览器中的JavaScript" class="headerlink" title="web浏览器中的JavaScript"></a>web浏览器中的JavaScript</h2><h2 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h2><h2 id="脚本化文档"><a href="#脚本化文档" class="headerlink" title="脚本化文档"></a>脚本化文档</h2><ul>
+<li><p>dom</p>
+</li>
+<li><p>获取文档元素</p>
+<ul>
+<li>document.getElementById()</li>
+<li>e.getElementsByName()</li>
+<li>e.getElementsByTagName()</li>
+<li>e.getElementsByClassName()</li>
+<li>e.querySelector()</li>
+<li>e.querySelectorAll()</li>
+</ul>
+</li>
+<li>文档结构和遍历<ul>
+<li>childNodes          children</li>
+<li>parentNode          </li>
+<li>firstChild          firstElementChild</li>
+<li>lastChile           lastElementChild</li>
+<li>previoursSibling    previousElementSibling</li>
+<li>nextSibling         nextElementSibling</li>
+</ul>
+</li>
+<li>属性<ul>
+<li>标准属性 Element属性 = HTML属性<blockquote>
+<p>Element中的属性使用小驼峰命名，class为关键字，使用className   </p>
+</blockquote>
+</li>
+<li>非标准HTML属性<ul>
+<li>e.getAttribute()</li>
+<li>e.setAttribute()</li>
+<li>e.removeAttribute()</li>
+<li>e.hasAttribute()<blockquote>
+<p>直接使用HTML中的属性名，不区分大小写</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>数据集属性<ul>
+<li>HTML中使用 <code>data-name</code></li>
+<li>Element.dataset.name</li>
+</ul>
+</li>
+<li>Attr节点<ul>
+<li>e.attributes   元素的所有属性集合对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>元素内容<ul>
+<li>innerHTML</li>
+<li>textContent</li>
+</ul>
+</li>
+<li>创建、插入、删除节点<ul>
+<li>document.createElement(nodeName)</li>
+<li>document.createTextNode(nodeValue)</li>
+<li>parentNode.appendChild(newNode,oldNode)</li>
+<li>parentNode.inserBefore(newNode,oldNode)</li>
+<li>parentNode.replaceChild(newNode,oldNode)</li>
+<li>parentNode.removeChild(oldNode)</li>
+</ul>
+</li>
+<li><p>文档和元素的几何形状和滚动</p>
+<ul>
+<li><p>元素位置</p>
+<ul>
+<li>偏移量 offsetLeft - offsetTop<blockquote>
+<p>相对与父元素(offsetParent)的偏移量</p>
+</blockquote>
+</li>
+<li><p>文档偏移量：遍历dom节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function getELeft(e)&#123;</span><br><span class="line">    let eL = e.offsetLeft</span><br><span class="line">    let eP = e.offsetParent</span><br><span class="line">    while(ep)&#123;</span><br><span class="line">        ep = ep.offsetParent</span><br><span class="line">        eL += ep.offsetLeft</span><br><span class="line">    &#125;</span><br><span class="line">    return eL</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>窗口位置：</p>
+</li>
+</ul>
+</li>
+<li><p>元素大小</p>
+<ul>
+<li>宽高 <ul>
+<li>offsetWidth - offsetHeight<blockquote>
+<p>border + padding + content</p>
+</blockquote>
+</li>
+<li>clientWidth - clientHeght<blockquote>
+<p>padding + content<br>浏览器视口大小 document.documentElement.clientWidth</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>确定元素大小：  e.getBoundingClientRect()</li>
+</ul>
+</li>
+<li><p>元素滚动</p>
+<ul>
+<li>文档大小 scrollWidth - scrollHeight</li>
+<li>滚动量 scrollLeft - scrollTop</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>html表单</p>
+</li>
+<li><p>其他文档特性</p>
+<h2 id="脚本化css"><a href="#脚本化css" class="headerlink" title="脚本化css"></a>脚本化css</h2></li>
+<li><p>脚本化内联样式</p>
+<ul>
+<li><p>e.style  =&gt;  CSSStyleDeclaration对象</p>
+<ul>
+<li>小驼峰属性名访问/设置内联样式 =&gt; 值为字符串<blockquote>
+<p>float为保留字 使用cssFloat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e.style.backgroundColor = &quot;red&quot;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>e.getAttribute(“style”) =&gt; cssText  字符串格式的css样式</p>
+</li>
+<li>e.setAttribute(“style”,cssText)</li>
+</ul>
+</li>
+<li>查询计算后样式<ul>
+<li>CSSStyleDeclaration(e,null)  -&gt; CSSStyleDeclaration对象 </li>
+</ul>
+</li>
+<li><p>脚本化css类</p>
+<ul>
+<li>e.className</li>
+<li>e.getAttribute(“class”)</li>
+<li>e.classList  -&gt; DOMTlkenList<ul>
+<li>add()</li>
+<li>remove()</li>
+<li>toggle()</li>
+<li>contains()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>脚本化样式表</p>
+<ul>
+<li>document.styleSheets  -&gt; 样式表集合(包括style、link)</li>
+<li><p>document.styleSheets[i]  -&gt; CSSStyleSheet对象</p>
+<ul>
+<li>insertRule() </li>
+<li><p>deleteRule()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">doucment.styleSheets[o].insertRule(&quot;h2 &#123; text-align: center; &#125;&quot;,0)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cssRules  所有css规则集合</p>
+<ul>
+<li>cssRules[i]  样式表中的某个css规则<ul>
+<li>selectText  CSS选择器</li>
+<li>cssText  css的文本属性<h2 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>事件类型</p>
+</li>
+<li><p>注册绑定事件处理函数</p>
+<ul>
+<li>绑定HTML元素属性</li>
+<li>绑定JavaScript对象属性</li>
+<li>addEventLister() 和removeEventListener()</li>
+</ul>
+</li>
+<li><p>事件调用触发</p>
+<ul>
+<li>常见HTML元素触发方法<ul>
+<li>click()</li>
+<li>blur()</li>
+<li>focus()</li>
+<li>select()</li>
+<li>submit()</li>
+<li>reset()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>事件对象event</p>
+<ul>
+<li>属性<ul>
+<li>type</li>
+<li>target</li>
+<li>currentTarget</li>
+<li>eventPhase</li>
+</ul>
+</li>
+<li>方法<ul>
+<li>preventDefault()</li>
+<li>stopPropagation()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>事件类型</p>
+<ul>
+<li>窗口事件<ul>
+<li>load</li>
+<li>unload</li>
+<li>beforeunload</li>
+<li>error</li>
+<li>focus</li>
+<li>blur</li>
+<li>resize</li>
+<li>scroll</li>
+<li>contextmenu</li>
+<li>DOMContentLoaded</li>
+<li>readystatechange</li>
+</ul>
+</li>
+<li>鼠标事件<ul>
+<li>click</li>
+<li>dbclick</li>
+<li>mousedown</li>
+<li>mousemove</li>
+<li>mouseover</li>
+<li>mouseout</li>
+<li>mouseup</li>
+<li>mouseenter</li>
+<li>mouseleave</li>
+<li>event对象：<ul>
+<li>clientX- clientY</li>
+<li>pageX - pageY</li>
+<li>screenX -screenY</li>
+<li>shiftKey、ctrlKey、altKey、metaKey</li>
+<li>relatedTarget</li>
+<li>button</li>
+<li>detail</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>鼠标滚轮事件</p>
+</li>
+<li><p>键盘事件</p>
+<ul>
+<li>keydown</li>
+<li>keypress</li>
+<li>keyup</li>
+<li>event对象：<ul>
+<li>key</li>
+<li>code</li>
+<li>char</li>
+<li>shiftKey、ctrlKey、altKey、metaKey</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>触屏事件<ul>
+<li>touchstart</li>
+<li>touchmove</li>
+<li>touchend</li>
+<li>enent对象<ul>
+<li>touches</li>
+<li>clientX</li>
+<li>pageX</li>
+<li>screenX<h2 id="脚本化http"><a href="#脚本化http" class="headerlink" title="脚本化http"></a>脚本化http</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>XMLHttpRequest</p>
+<ul>
+<li>构造函数<ul>
+<li>const XHR = new XMLHttpRequest()</li>
+</ul>
+</li>
+<li>实例<ul>
+<li>属性<ul>
+<li>readystate</li>
+<li>status (响应)</li>
+<li>responseText (响应)<blockquote>
+<p>能够获取MIME为text/plain、text/html、text/css、application/json等文本响应数据<br>overrideMimeType()可改响应数据MIME类型<br>XHR.overideMimeType(‘text/plain; charset=utf-8’)</p>
+</blockquote>
+</li>
+<li>onreadystatechange</li>
+</ul>
+</li>
+<li>方法<ul>
+<li>open()</li>
+<li>setRequestHeader()</li>
+<li>send()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>请求<br>   GET/POST发送的数据信息都需要进行encodeURIComponent()编码</p>
+<ul>
+<li>GET<ul>
+<li>数据保存在URL中，没有请求体</li>
+</ul>
+</li>
+<li><p>POST</p>
+<ul>
+<li><p>请求数据在请求体中通过send发送</p>
+<blockquote>
+<p>可使用FormData对数据进行序列化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var data = FormData(form)</span><br><span class="line">// data.append(&apos;name&apos;,value)</span><br><span class="line">send(data)</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>需设置Content-Type请求头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://biggodw/github.io/2019/03/03/客户端JavaScript/" title="客户端JavaScript" target="_blank" rel="external">http://biggodw/github.io/2019/03/03/客户端JavaScript/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/biggodw" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt>
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/biggodw" target="_blank"><span class="text-dark">biggod吴</span><small class="ml-1x">Web</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2019/03/03/hotcss/" title="hotcss"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫">
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫">
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class>
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/biggodw" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/biggodw" target="_blank" title="Twitter" data-toggle="tooltip" data-placement="top"><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/" target="_blank" title="Behance" data-toggle="tooltip" data-placement="top"><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
